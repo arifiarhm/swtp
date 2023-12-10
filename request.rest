@@ -1,0 +1,36 @@
+//Der Antrag enthält einen Autorisierungs-Header, der einen jwt als Bearer-Token enthält.
+//Dieser Token wird verwendet, um den Benutzer zu authentifizieren und ihm Zugriff auf geschützte Ressourcen zu gewähren.
+GET http://localhost:5001/users 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWUiOiJBcmlmaWEiLCJlbWFpbCI6ImFyaWZpYXJhaG1pQGdtYWlsLmNvbSIsImlhdCI6MTcwMTk1Mzc2MSwiZXhwIjoxNzAxOTUzNzgxfQ._zzYTf2lbCjQqLDtgxhWvPrjE0k3ieo13WpBg5yjJtE
+
+
+###
+//Das Passwort wird wahrscheinlich gehasht und in der db gespeichert, und der Benutzer wird registriert
+POST http://localhost:5001/users 
+Content-Type: application/json
+
+{
+    "name": "Arifia 2",
+    "email": "arifiarahmi@gmail.com",
+    "password": "123456",
+    "confPassword": "123456"
+}
+
+
+
+###
+POST http://localhost:5001/login
+Content-Type: application/json
+
+{
+    "email" : "arifiarahmi@gmail.com",
+    "password" : "123456"
+}
+
+###
+//um einen neuen JWT (Access Token) zu erhalten, wahrscheinlich für die Aktualisierung des aktuellen Tokens
+GET http://localhost:5001/token
+
+###
+//um den Benutzer abzumelden und alle mit dem Benutzer verbundenen Sitzungsinformationen zu löschen
+DELETE http://localhost:5001/logout 
